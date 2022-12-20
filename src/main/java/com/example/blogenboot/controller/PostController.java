@@ -95,4 +95,5 @@ public class PostController {
         blogenService.deleteCategory(id);
         return "redirect:/list-categories";
     }
+//    error
 }
