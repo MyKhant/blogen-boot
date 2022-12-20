@@ -2,59 +2,63 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<div th:fragment="postTable">
-  <header class="py-2 bg-danger text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1><i class="fas fa-file-powerpoint"></i> Posts</h1>
-        </div>
-      </div>
-    </div>
-  </header>
-  <section class="py-4 mb-4 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-6">
-          <div class="input-group">
-            <input type="text" class="form-control">
-            <div class="input-group-append">
-              <button class="btn btn-warning">Search</button>
+<div th:fragment="post">
+    <header class="py-2 bg-danger text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1><i class="fas fa-pencil-alt mr-2"></i> Posts</h1>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              <h3>Latest Posts List</h3>
+    </header>
+    <section class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-danger">Search</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <table class="table table-striped">
-              <thead>
-              <tr class="thead-dark">
-                <th>#</th>
-                <th>Title</th>
-                <th>Date Posted</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr th:each="post : ${posts}">
-                <td th:text="${post.id}"></td>
-                <td th:text="${post.title}"></td>
-                <td th:text="${post.datePosted}"></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section th:fragment="postTable" id="posts">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Latest Posts List</h3>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>DatePosted</th>
+                                <th>Category</th>
+                                <th>UserName</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="po : ${posts}">
+                                <td th:text="${po.id}"></td>
+                                <td th:text="${po.title}"></td>
+                                <td th:text="${po.datePosted}"></td>
+                                <td th:text="${po.category.title}"></td>
+                                <td th:text="${po.user.name}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 </body>
 </html>

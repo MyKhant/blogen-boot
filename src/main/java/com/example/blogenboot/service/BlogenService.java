@@ -8,6 +8,7 @@ import com.example.blogenboot.ds.Post;
 import com.example.blogenboot.ds.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -38,10 +39,13 @@ public class BlogenService {
     }
 
     public List<Post> findAllPosts() {
+
         return postDao.findAll();
     }
-
+    @Transactional
     public void savePost(Post post) {
+        post.setCategory(categoryDao.findById(post.getCategory().getId()).get());
+        post.setUser(userDao.findById(post.getUser().getId()).get());
         postDao.save(post);
     }
 }
