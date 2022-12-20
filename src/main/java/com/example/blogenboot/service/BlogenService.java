@@ -48,4 +48,12 @@ public class BlogenService {
         post.setUser(userDao.findById(post.getUser().getId()).get());
         postDao.save(post);
     }
+
+    public void deletePost(int id) {
+        postDao.deleteById(id);
+    }
+
+    public void deleteCategory(int id) {
+        categoryDao.deleteById(id);
+    }
 }

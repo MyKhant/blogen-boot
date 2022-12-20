@@ -42,6 +42,7 @@
                                 <th>DatePosted</th>
                                 <th>Category</th>
                                 <th>UserName</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,7 @@
                                 <td th:text="${po.datePosted}"></td>
                                 <td th:text="${po.category.title}"></td>
                                 <td th:text="${po.user.name}"></td>
+                                <td><a th:href="@{'/post/delete?id='+${po.id}}" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                             </tbody>
                         </table>

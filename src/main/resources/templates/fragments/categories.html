@@ -40,6 +40,7 @@
                                 <th>#</th>
                                 <th>Title</th>
                                 <th>Date Posted</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,6 +48,7 @@
                                 <td th:text="${cat.id}"></td>
                                 <td th:text="${cat.title}"></td>
                                 <td th:text="${cat.datePosted}"></td>
+                                <td><a th:if="${cat.posts.isEmpty()}" th:href="@{'/category/delete?id='+${cat.id}}" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                             </tbody>
                         </table>

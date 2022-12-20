@@ -35,7 +35,7 @@ public class PostController {
         }
         System.out.println(category);
         blogenService.saveCategory(category);
-        return "redirect:/";
+        return "redirect:/list-categories";
     }
     @GetMapping("/list-categories")
     public String listAllCategories(Model model, @ModelAttribute("categories")List<Category> categories){
@@ -49,7 +49,7 @@ public class PostController {
         }
         System.out.println(user);
         blogenService.saveUser(user);
-        return "redirect:/";
+        return "redirect:/list-users";
     }
     @GetMapping("/list-users")
     public String listAllUser(Model model, @ModelAttribute("users")List<User> users){
@@ -83,6 +83,16 @@ public class PostController {
         }
         System.out.println(post);
         blogenService.savePost(post);
-        return "redirect:/";
+        return "redirect:/list-posts";
+    }
+    @GetMapping("/post/delete")
+    public String deletePost(int id){
+        blogenService.deletePost(id);
+        return "redirect:/list-posts";
+    }
+    @GetMapping("/category/delete")
+    public String deleteCategory(int id){
+        blogenService.deleteCategory(id);
+        return "redirect:/list-categories";
     }
 }
