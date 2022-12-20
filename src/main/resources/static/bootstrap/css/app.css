@@ -1,5 +1,5 @@
 #postLink:hover{
-    color: #533f03;
+    color: #ba8b00;
 }
 #categoryLink:hover{
     color: #1c7430;
@@ -8,5 +8,14 @@
     color: #005cbf;
 }
 #dashboardLink:hover{
-    color: #721c24;
+    color: #b21f2d;
+}
+#profileLink:hover{
+    color: #ba8b00;
+}
+#settingLink:hover{
+    color: darkmagenta;
+}
+#logoutLink:hover{
+    color: #34ce57;
 }
