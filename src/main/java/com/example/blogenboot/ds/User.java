@@ -23,11 +23,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
 
-//    public void addPost(Post post){
-//        post.setUser(this);
-//        posts.add(post);
-//    }
-
     @Override
     public String toString() {
         return "User{" +

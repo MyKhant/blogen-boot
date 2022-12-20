@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <a href="#" class="btn btn-lg btn-primary btn-block">
+          <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
             <i class="fas fa-plus"></i> Add Post
           </a>
         </div>
@@ -26,7 +26,7 @@
           </a>
         </div>
         <div class="col-md-4">
-          <a href="#" class="btn btn-lg btn-warning btn-block">
+          <a href="#" class="btn btn-lg btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
             <i class="fas fa-plus"></i> Add User
           </a>
         </div>
@@ -55,6 +55,63 @@
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Close</button>
             <input type="submit" class="btn btn-success" value="Add Category">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addUserModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form th:action="@{/save-user}" th:object="${user}" method="post">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Add Users</h5>
+            <button class="close" data-dismiss="modal"><span>&times</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" th:field="*{name}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" th:field="*{email}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="dateRegistered">Date Registered</label>
+              <input type="date" id="dateRegistered" th:field="*{dateRegistered}" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-success" value="Add User">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form th:action="@{/save-post}" th:object="${post}" method="post">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Add Posts</h5>
+            <button class="close" data-dismiss="modal"><span>&times</span></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" th:field="*{title}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="datePosted">Date Posted</label>
+              <input type="date" id="datePosted" th:field="*{datePosted}" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-success" value="Add Post">
           </div>
         </form>
       </div>
